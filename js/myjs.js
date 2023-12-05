@@ -5,6 +5,9 @@ function formValidation() {
     var uPasswordConfig = document.reg.userPassConfig
     var uConfig = document.reg.config
 
+    let input = document.getElementById('InputName')
+    var newProfile = document.getElementById('profile_name')
+
     if (userNameValid(uName)) {
         if(userPhoneValid(uPhone)) {
             if(userPass(uPassword)) {
@@ -12,7 +15,8 @@ function formValidation() {
                     if(configValid(uConfig)){
                         document.getElementById('registration')
                             .addEventListener('click', () => window.open('index2.html'));
-                        document.getElementById('profile_name')[0].textContent = uName.value;
+
+                        newProfile.textContent = input.value;
                     }
                 }
             }
@@ -94,5 +98,3 @@ function configValid(uConfig) {
 
 // -----------------------------------------------------------------------------------------------
 
-document.getElementById('registration')
-    .addEventListener('click', () => window.open('index2.html'));
