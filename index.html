@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Обязательные мататеги -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mycss.css" rel="stylesheet">
+
+    <title>GpB Гавная</title>
+</head>
+<body style="font-family: 'Comic Sans MS'">
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/myjs.js"></script>
+
+    <header class="header_and_footer">
+        <nav class="navbar navbar-expand-lg navbar-light bg-">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/LOGO.svg" class="w-25 rounded-3" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse larger_text" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link main_color_text" aria-current="page" href="index.html">Главная</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle main_color_text" href="#" id="navbarDropdownMenuLink" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                Поисковая работа
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item main_color_text" href="#">Поиск по объявлениям</a></li>
+                                <li><a class="dropdown-item main_color_text" href="#">Добавить объявление</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- Button trigger modal -->
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#ModalRegistration">Регистрация</button>
+                        <button type="button" class="btn btn-primary me-md-2" data-bs-toggle="modal" data-bs-target="#ModalAccount">Личный кабинет</button>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="ModalRegistration" tabindex="-1" role="dialog" aria-labelledby="ModalRegistrationLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header header_and_footer">
+                                    <h5 class="modal-title back_color_text larger_text" id="ModalRegistrationLabel"><b>Регистрация</b></h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="main_color_text" name="reg">
+                                        <div class="form-group py-3">
+                                            <label for="InputName" class="form-label">Имя</label>
+                                            <input type="text" name="userName" class="form-control" id="InputName" aria-describedby="nameHelp" placeholder="ваше имя" pattern="^" required>
+                                            <small id="nameHelp" class="form-text text-muted small">*Обязательное поле</small>
+                                        </div>
+                                        <div class="form-group py-3">
+                                            <label for="InputPhone">Моб. телефон</label>
+                                            <input type="tel" name="userPhone" class="form-control" id="InputPhone" aria-describedby="phoneHelp" placeholder="+79999999999" required>
+                                            <small id="phoneHelp" class="form-text text-muted small">*Обязательное поле</small>
+                                        </div>
+                                        <div class="form-group py-3">
+                                            <label for="InputPassword">Пароль</label>
+                                            <input type="password" name="userPass" class="form-control" id="InputPassword" aria-describedby="phoneHelp" required>
+                                            <small id="passwordHelp" class="form-text text-muted small">
+                                                <p>*Пароль должен содержать:</p>
+                                                <p>- цифры (0-9)</p>
+                                                <p>- строчные буквы (a-z)</p>
+                                                <p>- заглавные буквы (A-Z)</p>
+                                            </small>
+                                        </div>
+                                        <div class="form-group py-3">
+                                            <label for="InputPassword">Подтверждение пароля</label>
+                                            <input type="password" name="userPassConfig" class="form-control" id="InputPasswordConfirm" aria-describedby="phoneHelp" required>
+                                            <small id="passwordConfirmHelp" class="form-text text-muted small">*Пароли должны совпадать</small>
+                                        </div>
+                                        <div class="form-check py-3">
+                                            <input type="checkbox" name="config" class="form-check-input" id="confirm" required>
+                                            <label class="form-check-label small" for="confirm">Принять <a href="https://10.rkn.gov.ru/docs/10/Pravila_obrabotki_PD.pdf">согласие на обработку персональных данных</a></label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer header_and_footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                                    <button type="button" name="submit" id="registration" class="btn btn-primary" onclick="formValidation()">Создать аккаунт</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main_background" style="background: url(img/BCKGR_1.svg)">
+        <pre>
+
+        </pre>
+        <div class="mx-5 px-5 py-5 search">
+            <h5 class="py-2 back_color_text">Быстрый поиск по объявлениям ->></h5>
+            <form class="d-flex">
+                <input class="form-control me-2 opacity-50" type="search" list="pets" placeholder="поиск..." aria-label="Search">
+                <button class="btn btn-primary" onclick="">Поиск</button>
+                <datalist id="pets">
+                    <option value="Кошка"/>
+                    <option value="Собака"/>
+                    <option value="Панда"/>
+                    <option value="Белка"/>
+                </datalist>
+            </form>
+        </div>
+        <pre>
+
+        </pre>
+        <h2 class="text-center py-2 main_color_text">Найденные животные</h2>
+        <div id="carouselExampleIndicators" class="carousel slide m-auto w-75 p-2 my_carousel" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/pets/slide_1.jpg" class="d-block w-100 top_border_radius" alt="slide1">
+                    <div class="text-center py-4 main_color_text">
+                        <h5><b>Щенок</b></h5>
+                        <p><b>дата:</b> 25.11.2023</p>
+                        <p><b>район:</b> ЦПКиО С.М.Кирова</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/pets/slide_2.jpg" class="d-block w-100 top_border_radius" alt="slide2">
+                    <div class="text-center py-4 main_color_text">
+                        <h5><b>Кошка</b></h5>
+                        <p><b>дата:</b> 10.09.2023</p>
+                        <p><b>район:</b> М. Пионерская</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/pets/slide_3.jpg" class="d-block w-100 top_border_radius" alt="slide3">
+                    <div class="text-center py-4 main_color_text">
+                        <h5><b>Бульдог</b></h5>
+                        <p><b>дата:</b> 02.12.2023</p>
+                        <p><b>район:</b> Комендантский пр-кт</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий</span>
+            </button>
+        </div>
+        <pre>
+
+        </pre>
+
+        <h2 class="text-center py-2 main_color_text">Карточки найденных животных</h2>
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+            <div class="d-flex flex-row flex-wrap m-3 my_cards top_border_radius">
+                <img src="img/pets/card_1.jpg" class="card-img-top top_border_radius" alt="1_card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item main_color_text"><b class="back_color_text">id:</b> 25</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Вид животного:</b> Рыжая панда</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Описание:</b> Потерялась рыжая панда, пушистая, дружелюбная, любит сладости</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Номер чипа:</b> ca-001-spb</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Район:</b> Василиостровский</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Дата:</b> 11.07.2023</li>
+                </ul>
+            </div>
+            <div class="d-flex flex-row flex-wrap m-3 my_cards top_border_radius">
+                <img src="img/pets/card_2.jpg" class="card-img-top top_border_radius" alt="2_card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item main_color_text"><b class="back_color_text">id:</b> 06</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Вид животного:</b> Белки обычные</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Описание:</b> Потерялись белки-близняшки, ручные. В последний раз видели в центральном парке отдыха</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Номер чипа:</b> cq-022-spb</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Район:</b> ЦПКиО С.М.Кирова</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Дата:</b> 15.08.2023</li>
+                </ul>
+            </div>
+            <div class="d-flex flex-row flex-wrap m-3 my_cards top_border_radius">
+                <img src="img/pets/card_3.jpg" class="card-img-top top_border_radius" alt="3_card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item main_color_text"><b class="back_color_text">id:</b> 50</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Вид животного:</b> Лягушка</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Описание:</b> Лягушка путешественница, последний раз видели на жд станции</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Номер чипа:</b> cм-005-spb</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Район:</b> М. Купчино</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Дата:</b> 13.09.2023</li>
+                </ul>
+            </div>
+            <div class="d-flex flex-row flex-wrap m-3 my_cards top_border_radius">
+                <img src="img/pets/card_4.jpg" class="card-img-top top_border_radius" alt="4_card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item main_color_text"><b class="back_color_text">id:</b> 04</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Вид животного:</b> Утки</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Описание:</b> Потерялась группа уток, не разделяются, работают вместе</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Номер чипа:</b> yt-777-spb</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Район:</b> Шуваловский пр-кт</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Дата:</b> 20.10.2023</li>
+                </ul>
+            </div>
+            <div class="d-flex flex-row flex-wrap m-3 my_cards top_border_radius">
+                <img src="img/pets/card_5.jpg" class="card-img-top top_border_radius" alt="5_card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item main_color_text"><b class="back_color_text">id:</b> 76</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Вид животного:</b> Кролик</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Описание:</b> Кролик Мартин пропал на утро 24.09.2023. Любит морковку, орехи, очень шустрый</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Номер чипа:</b> cu-003-spb</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Район:</b> Комендантский пр-кт</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Дата:</b> 10.10.2023</li>
+                </ul>
+            </div>
+            <div class="d-flex flex-row flex-wrap m-3 my_cards top_border_radius">
+                <img src="img/pets/card_6.jpg" class="card-img-top top_border_radius" alt="6_card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item main_color_text"><b class="back_color_text">id:</b> 13</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Вид животного:</b> Черная кошка</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Описание:</b> Потерялась кошка Удача, не бойтесь, если перейдет дорогу. В последний раз видели в районе М. Старая деревня</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Номер чипа:</b> qw-013-spb</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Район:</b> М. Старая деревня</li>
+                    <li class="list-group-item main_color_text"><b class="back_color_text">Дата:</b> 01.12.2023</li>
+                </ul>
+            </div>
+        </div>
+        <pre>
+
+        </pre>
+
+        <div class="mx-5 px-5 py-5 my_link">
+            <h2 class="text-center py-2 main_color_text">Подписка на новости</h2>
+            <form class="w-50 m-auto p-3 min_width_300">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Введите свой Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">Введеные вами данные не разглашаются</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Подписаться</button>
+            </form>
+        </div>
+    </main>
+    <pre>
+
+    </pre>
+
+    <footer class="border-bottom text-center header_and_footer">
+        <p class="p-4 main_color_text">GET PET BACK © Copyright, 2023</p>
+        <p class="main_color_text small">все права защищены</p>
+    </footer>
+</body>
+</html>
