@@ -19,7 +19,7 @@
     <header class="header_and_footer">
         <nav class="navbar navbar-expand-lg navbar-light bg-">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand">
                     <img src="img/LOGO.svg" class="w-25 rounded-3" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -49,7 +49,7 @@
                         <button type="button" class="btn btn-primary me-md-2" data-bs-toggle="modal" data-bs-target="#ModalAccount">Личный кабинет</button>
                     </div>
 
-                    <!-- Modal -->
+                    <!-- Modal registration-->
                     <div class="modal fade" id="ModalRegistration" tabindex="-1" role="dialog" aria-labelledby="ModalRegistrationLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -63,7 +63,7 @@
                                     <form class="main_color_text" name="reg">
                                         <div class="form-group py-3">
                                             <label for="InputName" class="form-label">Имя</label>
-                                            <input type="text" name="userName" class="form-control" id="InputName" aria-describedby="nameHelp" placeholder="ваше имя" pattern="^" required>
+                                            <input type="text" name="userName" class="form-control" id="InputName" aria-describedby="nameHelp" placeholder="ваше имя" required>
                                             <small id="nameHelp" class="form-text text-muted small">*Обязательное поле</small>
                                         </div>
                                         <div class="form-group py-3">
@@ -99,7 +99,44 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Modal -->
+                    <!-- Modal registration-->
+
+                    <!-- Modal account-->
+                    <div class="modal fade" id="ModalAccount" tabindex="-1" role="dialog" aria-labelledby="ModalAccountLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header header_and_footer">
+                                    <h5 class="modal-title back_color_text larger_text" id="ModalAccountLabel"><b>Вход в личный кабинет</b></h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="main_color_text" name="acc">
+                                        <div class="form-group py-3">
+                                            <label for="InputName" class="form-label">Логин</label>
+                                            <input type="email" name="accountLogin" class="form-control" id="InputAccountLogin" aria-describedby="AccountlogHelp" placeholder="Ваш E-mail" required>
+                                            <small id="AccountlogHelp" class="form-text text-muted small"><a href="#">Забыли логин?</a></small>
+                                        </div>
+                                        <div class="form-group py-3">
+                                            <label for="InputPhone">Пароль</label>
+                                            <input type="password" name="accountPassword" class="form-control" id="InputAccountPassword" aria-describedby="AccountPassHelp" required>
+                                            <small id="AccountPassHelp" class="form-text text-muted small"><a href="#">Забыли пароль?</a></small>
+                                        </div>
+                                        <div class="form-check py-3">
+                                            <input type="checkbox" name="learn_me" class="form-check-input" id="learn_me" required>
+                                            <label class="form-check-label small" for="confirm">Запомнить меня</label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer header_and_footer text-center">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                                    <button type="button" name="submit" id="account" class="btn btn-primary" onclick="formAccountValidation()">Войти</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal account-->
 
                 </div>
             </div>
