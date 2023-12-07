@@ -9,7 +9,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/mycss.css" rel="stylesheet">
 
-    <title>GpB Поиск</title>
+    <title>GpB Добавить</title>
 </head>
 <body style="font-family: 'Comic Sans MS'">
 <!-- Bootstrap JS -->
@@ -144,74 +144,62 @@
 </header>
 
 <main class="main_background" style="background: url(img/BCKGR_1.svg)">
-        <pre>
+    <pre>
 
-        </pre>
+    </pre>
     <div class="mx-5 px-5 py-5 search">
-        <h5 class="py-4 back_color_text">Поиск по объявлениям ->></h5>
-        <form name="searchPets">
+        <h5 class="py-4 back_color_text">Добавить объявление ->></h5>
+        <form name="addPets">
             <div class="form-group py-3">
-                <label class="main_color_text" for="selectArea">Выберите район:</label>
-                <select class="form-control sear_text" id="selectArea" name="selectAreaPets">
-                    <option>Адмиралтейский</option>
-                    <option>Василеостровский</option>
-                    <option>Выборгский</option>
-                    <option>Красногвардейский</option>
-                    <option>Кронштадтский</option>
-                    <option>Московский</option>
-                    <option>Невский</option>
-                    <option>Петроградский</option>
-                    <option>Приморский</option>
-                    <option>Центральный</option>
-                </select>
+                <label for="InputNameForAdd" class="form-label main_color_text">Имя пользователя</label>
+                <input type="text" name="userNameForAdd" class="form-control sear_text" id="InputNameForAdd" aria-describedby="InputNameForAddHelp" placeholder="Ваше имя" required>
+                <small id="InputNameForAddHelp" class="form-text text-muted small">*Обязательное поле</small>
             </div>
             <div class="form-group py-3">
-                <label class="main_color_text" for="formGroupExampleInput">Вид животного:</label>
-                <input type="text" class="form-control sear_text" id="formGroupExampleInput" name="inputPetsVid">
+                <label for="InputPhoneForAdd" class="main_color_text">Моб. телефон</label>
+                <input type="tel" name="userPhoneForAdd" class="form-control sear_text" id="InputPhoneForAdd" aria-describedby="InputPhoneForAddHelp" placeholder="+79999999999" required>
+                <small id="InputPhoneForAddHelp" class="form-text text-muted small">*Обязательное поле</small>
             </div>
             <div class="form-group py-3">
-                <small class="form-text text-muted small">*Необходимо заполнить хотя бы одно поле</small>
+                <label for="InputEmailForAdd" class="form-label main_color_text">E-mail</label>
+                <input type="email" name="userEmailForAdd" class="form-control sear_text" id="InputEmailForAdd" aria-describedby="InputEmailForAddHelp" placeholder="Ваш E-mail" required>
+                <small id="InputEmailForAddHelp" class="form-text text-muted small">*Обязательное поле</small>
             </div>
-            <button type="button" class="btn btn-primary" onclick="searchValidate()">Поиск</button>
+            <div class="form-check py-3">
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#ModalRegistration">Регистрация</button>
+            </div>
+            <div class="row mb-3">
+                <label for="photo1" class="col-form-label main_color_text">Фото №1</label>
+                <div class="col-sm-10 py-3">
+                    <input class="form-control sear_text" name="petPhotoForAdd" id="photo1" type="file" accept="image/*" required>
+                </div>
+                <label for="photo2" class="col-form-label main_color_text">Фото №2</label>
+                <div class="col-sm-10 py-3">
+                    <input class="form-control sear_text" id="photo2" type="file" accept="image/*">
+                </div>
+                <label for="photo3" class="col-form-label main_color_text">Фото №3</label>
+                <div class="col-sm-10 py-3">
+                    <input class="form-control sear_text" id="photo3" type="file" accept="image/*">
+                </div>
+            </div>
+            <div class="form-group py-3">
+                <label for="InputMarkForAdd" class="form-label main_color_text">Номер чипа (если есть)</label>
+                <input type="text" name="markForAdd" class="form-control" id="InputMarkForAdd" aria-describedby="InputMarkForAddHelp">
+            </div>
+            <div class="form-group py-3">
+                <label for="petDiscrForAdd" class="main_color_text">Описание</label>
+                <textarea class="form-control" id="petDiscrForAdd" rows="3" name="petDiscrForAdd" required></textarea>
+            </div>
+            <div class="form-check py-5">
+                <input type="checkbox" name="config" class="form-check-input" id="config" required>
+                <label class="form-check-label small" for="config">Принять <a href="https://10.rkn.gov.ru/docs/10/Pravila_obrabotki_PD.pdf">согласие на обработку персональных данных</a></label>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="addPetsValidate()">Добавить объявление</button>
         </form>
     </div>
     <pre>
 
     </pre>
-    <h2 class="text-center py-2 main_color_text">Найденные объявления</h2>
-    <pre>
-
-    </pre>
-    <div class="d-flex flex-row flex-wrap justify-content-center">
-        <div class="d-flex flex-row flex-wrap m-3 my_cards top_border_radius">
-            <img src="img/pets/card_1.jpg" class="card-img-top top_border_radius" alt="1_card">
-            <div class="card-body">
-                <h5 class="card-title py-1 back_color_text">Пропала рыжая панда</h5>
-                <p class="card-text py-3 main_color_text">видели в Центральном районе</p>
-                <a href="pageOnePetCard.html" class="card-link py-1">Подробнее >></a>
-            </div>
-        </div>
-        <div class="d-flex flex-row flex-wrap m-3 my_cards top_border_radius">
-            <img src="img/pets/card_2.jpg" class="card-img-top top_border_radius" alt="2_card">
-            <div class="card-body">
-                <h5 class="card-title py-1 back_color_text">Пропали белки</h5>
-                <p class="card-text py-3 main_color_text">видели в Московском районе</p>
-                <a href="#" class="card-link py-1">Подробнее >></a>
-            </div>
-        </div>
-    </div>
-    <pre>
-
-    </pre>
-    <nav aria-label="...">
-        <ul class="pagination pagination-sm justify-content-center">
-            <li class="page-item active" aria-current="page">
-                <span class="page-link">1</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-        </ul>
-    </nav>
 </main>
 <footer class="border-bottom text-center header_and_footer">
     <p class="p-4 main_color_text">GET PET BACK © Copyright, 2023</p>

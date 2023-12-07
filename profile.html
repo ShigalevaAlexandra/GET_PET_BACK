@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Обязательные мататеги -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mycss.css" rel="stylesheet">
+
+    <title>GpB личный кабинет</title>
+</head>
+<body style="font-family: 'Comic Sans MS'">
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/myjs.js"></script>
+
+<header>
+    <div class="header_and_footer">
+        <div class="d-grid gap-5 d-md-flex justify-content-md-start">
+            <div class="d-grid gap-3 d-md-flex d-inline-flex">
+                <button type="button" id="again" class="btn btn-primary" onclick="openIndex2()"><<</button>
+                <a>
+                    <img src="img/profile.png" alt="profile">
+                    <a class="main_color_text larger_text text-decoration-none"><b id="profile_name">Profile Name</b></a>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+</header>
+<main class="main_background py-4" style="background: url(img/BCKGR_1.svg)">
+    <!-- href trigger modal -->
+    <a data-bs-toggle="modal" data-bs-target="#ModalAccSettings">
+        <img src="img/settings.png" alt="settings">
+    </a>
+
+    <!-- Modal accountSettings-->
+    <div class="modal fade" id="ModalAccSettings" tabindex="-1" role="dialog" aria-labelledby="ModalAccSettingsLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header header_and_footer">
+                    <h5 class="modal-title back_color_text larger_text" id="ModalAccSettingsLabel"><b>Настройки личного кабинета</b></h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header px-3 py-3" id="newPhoneSet">
+                        <button class="accordion-button collapsed main_color_text" type="button" data-bs-toggle="collapse" data-bs-target="#newPhoneForm" aria-expanded="false" aria-controls="collapse22">
+                            Изменить номер телефона
+                        </button>
+                    </h2>
+                    <div id="newPhoneForm" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                        <div class="accordion-body">
+                            <form name="newPhone">
+                                <div class="form-group py-3">
+                                    <label for="InputNewPhone" class="main_color_text">Новый номер телефона</label>
+                                    <input type="tel" name="newPhone" class="form-control" id="InputNewPhone" aria-describedby="newPhoneHelp" placeholder="+79999999999" required>
+                                    <small id="newPhoneHelp" class="form-text text-muted small">*Обязательное поле</small>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" name="submit" id="readyNewPhone" class="btn btn-primary" onclick="newPhoneValidate()">Сохранить</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header px-3 py-3" id="newEmailSet">
+                            <button class="accordion-button collapsed main_color_text" type="button" data-bs-toggle="collapse" data-bs-target="#newEmailForm" aria-expanded="false" aria-controls="collapse22">
+                                Изменить адрес электронной почты
+                            </button>
+                        </h2>
+                        <div id="newEmailForm" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                            <div class="accordion-body">
+                                <form class="main_color_text" name="newEmail">
+                                    <div class="form-group py-3">
+                                        <label for="InputNewEmail" class="form-label main_color_text">Новый E-mail</label>
+                                        <input type="email" name="newEmail" class="form-control" id="InputNewEmail" aria-describedby="newEmailHelp" placeholder="E-mail" required>
+                                        <small id="newEmailHelp" class="form-text text-muted small">*Обязательное поле</small>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" name="submit" id="readyNewEmail" class="btn btn-primary" onclick="newEmailValidate()">Сохранить</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal accountSettings-->
+
+    <div class="mx-5 px-5 py-5 search">
+        <h5 class="py-4 back_color_text"><b>Информация о пользователе</b></h5>
+        <form>
+            <div class="form-group row py-3">
+                <label for="accNameInf" class="col-sm-2 col-form-label main_color_text">Имя: </label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext sear_text" id="accNameInf" value="profile_name">
+                </div>
+            </div>
+            <div class="form-group row py-3">
+                <label for="accPhoneInf" class="col-sm-2 col-form-label main_color_text">Моб. телефон: </label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext sear_text" id="accPhoneInf" value="profile_phone">
+                </div>
+            </div>
+            <div class="form-group row py-3">
+                <label for="accEmailInf" class="col-sm-2 col-form-label main_color_text">E-mail: </label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext sear_text" id="accEmailInf" value="profile_email">
+                </div>
+            </div>
+            <div class="form-group row py-3">
+                <label for="accRegDateInf" class="col-sm-2 col-form-label main_color_text">Дата регистрации: </label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext sear_text" id="accRegDateInf" value="profile_regDate">
+                </div>
+            </div>
+            <div class="form-group row py-3">
+                <label for="accCountDayInf" class="col-sm-2 col-form-label main_color_text">Кол-во дней в системе: </label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext sear_text" id="accCountDayInf" value="profile_regDate">
+                </div>
+            </div>
+            <div class="form-group row py-3">
+                <label for="accOrdCountInf" class="col-sm-2 col-form-label main_color_text">Кол-во объявлений: </label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext sear_text" id="accOrdCountInf" value="profile_ordCount">
+                </div>
+            </div>
+            <div class="form-group row py-3">
+                <label for="accPetCountInf" class="col-sm-2 col-form-label main_color_text">Кол-во найденных животных: </label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext sear_text" id="accPetCountInf" value="profile_petCount">
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-primary" href="#">Просмотр добавленных объявлений >></button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

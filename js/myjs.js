@@ -123,7 +123,7 @@ function accLoginValidate(accLogin) {
     }
     else {
         if(accLogin.value === "") {
-            alert("Введите логин")
+            alert("Введите E-mail")
         }
 
         accLogin.focus()
@@ -148,4 +148,130 @@ function accPasswordValidate(accPassword) {
         accPassword.focus()
         return false
     }
+}
+
+//----------------------------------------------------------------------------------------------------------
+//Функция для валидации формы ПОИСКА
+
+function searchValidate() {
+    var searchArea = document.getElementById('selectArea')
+    var petsVid = document.searchPets.inputPetsVid
+
+    if (searchArea.value !== "" && petsVidValidate(petsVid)) {
+        return true
+    } else {
+        return false;
+    }
+}
+
+function petsVidValidate(petsVid) {
+    var pets = /^[a-zA-Z]$/
+
+    if(petsVid.value.match(pets)) {
+        return true
+    }
+    else {
+        alert("Поле ВИД ЖИВОТНОГО может содержать символы Аа-Яя")
+        petsVid.focus()
+        return false
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------
+//Функция для валидации формы ДОБАВЛЕНИЯ ОБЪЯВЛЕНИЯ
+function addPetsValidate() {
+    var uName = document.addPets.userNameForAdd
+    var uPhone = document.addPets.userPhoneForAdd
+    var accLogin = document.addPets.userEmailForAdd
+    var petPhoto = document.addPets.petPhotoForAdd
+    var petDiscr = document.addPets.petDiscrForAdd
+    var uConfig = document.addPets.config
+
+    if (userNameValid(uName)) {
+        if (userPhoneValid(uPhone)) {
+            if (accLoginValidate(accLogin)) {
+                if (petAddPhotoValid(petPhoto)) {
+                    if (petDisValid(petDiscr)) {
+                        if (configForAddValid(uConfig)) {
+                                alert("ОбЪявление успешно добавлено!!!")
+                            }
+                        }
+                    }
+                }
+        }
+        return false;
+    }
+}
+
+function petAddPhotoValid(petPhoto) {
+    if (document.getElementById('photo1').value !== "") {
+        return true
+    }
+    else {
+        alert("Загрузите ОДНО ФОТО животного")
+        petPhoto.focus()
+        return false
+    }
+}
+
+function petDisValid(petDiscr) {
+    if (document.getElementById('petDiscrForAdd').value !== "") {
+        return true
+    }
+    else {
+        petDiscr.style.borderColor = 'red'
+        alert("Дайте КРАТКОЕ ОПИСАНИЕ животного")
+        petDiscr.focus()
+        return false
+    }
+}
+
+function configForAddValid(uConfig) {
+    const config = document.getElementById('config');
+
+    if(config.checked) {
+        return true
+    }
+    else {
+        alert("НЕ ПРИНЯТО согласие на обработку персональных данных")
+        uConfig.focus()
+        return false
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------
+//Функция для валидации формы НОВОГО НОМЕРА ТЕЛЕФОНА
+
+function newPhoneValidate() {
+    var uPhone = document.newPhone.newPhone
+
+    if(userPhoneValid(uPhone)) {
+        alert("Номер телефона УСПЕШНО изменен!!!")
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------
+//Функция для валидации формы НОВОГО E-MAIL
+function newEmailValidate() {
+    var accLogin = document.newEmail.newEmail
+
+    if (accLoginValidate(accLogin)) {
+        alert("E-mail УСПЕШНО изменен!!!")
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------
+//Функция для возвращения на главную
+function openIndex2() {
+    document.getElementById('again')
+        .addEventListener('click', () =>
+            window.open('index2.html'));
 }
