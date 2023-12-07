@@ -5,13 +5,12 @@ function formValidation() {
     var uPassword = document.reg.userPass
     var uPasswordConfig = document.reg.userPassConfig
     var uConfig = document.reg.config
-    var nameInput = document.getElementById('InputName').value
 
     if (userNameValid(uName)) {
-        if(userPhoneValid(uPhone)) {
-            if(userPass(uPassword)) {
-                if(userPassConfigValid(uPasswordConfig)) {
-                    if(configValid(uConfig)){
+        if (userPhoneValid(uPhone)) {
+            if (userPass(uPassword)) {
+                if (userPassConfigValid(uPasswordConfig)) {
+                    if (configValid(uConfig)) {
                         document.getElementById('registration')
                             .addEventListener('click', () =>
                                 window.open('index2.html'));
@@ -19,8 +18,8 @@ function formValidation() {
                 }
             }
         }
-    }
     return false;
+    }
 }
 
 function userNameValid(uName) {
